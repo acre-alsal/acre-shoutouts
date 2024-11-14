@@ -27,7 +27,7 @@ app.use(cors());
 app.use(express.json());
 
 // Schedule the deletion of notes at 01:18 AM GMT every day
-cron.schedule('* * * * *', () => {
+cron.schedule('0 0 * * *', () => {
     Note.deleteMany({})
         .then(() => console.log('All notes deleted successfully at 01:18 AM GMT'))
         .catch((err) => console.error('Error deleting notes:', err));
